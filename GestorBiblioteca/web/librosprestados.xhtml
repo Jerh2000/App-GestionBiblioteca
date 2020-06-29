@@ -61,7 +61,11 @@
                     <p:column headerText="Fecha de Devolución">
                         <p:outputLabel value="#{pres.fechaDevolucion}"/>
                     </p:column>
-
+                    <p:column headerText="Acciones">
+                        <p:button icon="ui-icon-delete" value="Devolver" outcome="devolverlibro" class="btn btn-success">
+                            <f:param name="ISBN" value="#{pres.codLibro}"/>
+                        </p:button>
+                    </p:column>
                 </p:dataTable>
             </h:form>
         </div>

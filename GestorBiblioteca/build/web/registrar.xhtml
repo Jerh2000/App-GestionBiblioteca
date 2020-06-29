@@ -29,7 +29,7 @@
         <h:form> 
             <p:growl id="messages"/>
 
-            <p:menubar class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <p:menubar class="navbar navbar-expand-lg navbar-light bg-light">
                 <p:menuitem value="Biblioteca" url="http://localhost:8080/GestorBiblioteca/faces/index.xhtml"/>
                 <p:menuitem value="Registrar Libros" url="#"/>
                 <p:menuitem value="Prestar Libros" url="http://localhost:8080/GestorBiblioteca/faces/prestar.xhtml"/>
@@ -39,42 +39,43 @@
         </h:form>
 
         <div class="container-fluid mt-0 formulario">
+
+            
             <h:form class="mt-0 pt-0">
                 <div class="container p-1">
-                    
+
                     <h3 class="display-4 pt-0 text-center mb-0 pb-0" style="font-size: 2.5rem">Registro de Libros</h3>
-                    
+
                     <fieldset class="border border-primary m-0 pl-2 pr-2 pb-2 pt-0 rounded">
                         <legend>Registrar libro</legend>
                         <div class="row">
                             <div class="col-6 form-group">
                                 <!--Codigo de registro-->
                                 <h:outputLabel for="codigo" value="Codigo libro:"/>
-                                <h:inputText id="codigo" value="#{registrarLibro.libro.codigoRegistro}" class="form-control"/>
-
+                                <h:inputText id="codigo" value="#{registrarLibro.libro.codigoRegistro}" class="form-control" required="true"/>
                                 <!--ISBN-->
                                 <h:outputLabel for="ISBN" value="Codigo ISBN:" />
-                                <h:inputText id="ISBN" value="#{registrarLibro.libro.ISBN}" class="form-control"/>
+                                <h:inputText id="ISBN" value="#{registrarLibro.libro.ISBN}" class="form-control" required="true"/>
                             </div>
 
                             <div class="col-6 form-group">
                                 <!--Titulo del libro-->
                                 <h:outputLabel for="Titulo" value="Titulo del libro:" />
-                                <h:inputText id="Titulo" value="#{registrarLibro.libro.nombreLibro}" class="form-control"/>
+                                <h:inputText id="Titulo" value="#{registrarLibro.libro.nombreLibro}" class="form-control" required="true"/>
 
                                 <!--Autor-->
                                 <h:outputLabel for="Autor" value="Autor:" />
-                                <h:inputText id="Autor" value="#{registrarLibro.libro.autor}" class="form-control"/>
+                                <h:inputText id="Autor" value="#{registrarLibro.libro.autor}" class="form-control" required="true"/>
                             </div>
 
                             <div class="col-6 form-group">
                                 <!--Pais-->
                                 <h:outputLabel for="Pais" value="País:" />
-                                <h:inputText id="Pais" value="#{registrarLibro.libro.pais}" class="form-control"/>
+                                <h:inputText id="Pais" value="#{registrarLibro.libro.pais}" class="form-control" required="true"/>
 
                                 <!--Numero de paginas-->
                                 <h:outputLabel for="NumPag" value="Numero de páginas:" />
-                                <h:inputText id="NumPag" value="#{registrarLibro.libro.numeroPaginas}" class="form-control"/>
+                                <h:inputText id="NumPag" value="#{registrarLibro.libro.numeroPaginas}" class="form-control" required="true"/>
                             </div>
 
                             <div class="col-6 form-group">
@@ -84,13 +85,13 @@
 
                                 <!--Fecha Publicacion-->
                                 <h:outputLabel for="FechaP" value="Fecha de publicación:" />
-                                <h:inputText id="FechaP" value="#{registrarLibro.libro.fechaPublicacion}" class="form-control"/>
+                                <h:inputText id="FechaP" value="#{registrarLibro.libro.fechaPublicacion}" class="form-control" required="true"/>
                             </div>
 
                             <div class="col-6 form-group">
                                 <!--Idioma-->
                                 <h:outputLabel for="Idioma" value="Idioma:" />
-                                <h:selectOneMenu id="Idioma" value="#{registrarLibro.libro.idioma}" class="form-control">
+                                <h:selectOneMenu id="Idioma" value="#{registrarLibro.libro.idioma}" class="form-control" required="true">
                                     <f:selectItem itemValue="Nothing" itemLabel="--Seleccione un idioma--" itemDisabled="True"/>
                                     <f:selectItem itemValue="Ingles" itemLabel="Inglés"/>
                                     <f:selectItem itemValue="Español" itemLabel="Español"/>
@@ -111,7 +112,6 @@
                                 <h:selectOneMenu id="Estado" value="#{registrarLibro.libro.estadoPrestamo}" class="form-control">
                                     <f:selectItem itemValue="Nothing" itemLabel="--Seleccione una opción--" itemDisabled="True"/>
                                     <f:selectItem itemValue="Disponible" itemLabel="Disponible"/>
-                                    <f:selectItem itemValue="No disponible" itemLabel="No disponible"/>
                                 </h:selectOneMenu>
                             </div>
 
@@ -119,7 +119,7 @@
                         <div class="col-12">
                             <!--Boton de accion-->
                             <h:commandButton value="Registrar" class="btn btn-success w-100 mt-0 mb-2" action="#{registrarLibro.registro}"></h:commandButton>
-                           
+
                             <h:button outcome="index" value="Cancelar" class="btn btn-danger w-100"/>
                         </div>
                     </fieldset>

@@ -5,13 +5,31 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"></link>
+        <title>Editar libro</title>
+        <style>
+            .formulario{
+                width:1100px;height:600px;
+                background:#e6e6e6;
+                border-radius:8px;
+                box-shadow:0 0 40px -10px #000;
+                margin:calc(50vh - 220px) auto;
+                max-width:calc(100vw - 40px);
+                box-sizing:border-box;
+                font-family:'Segoe UI',sans-serif;
+                position:relative;
+                top:2px;
+                margin-top: 3px;
+                margin-bottom: 0;
+                background-color: appworkspace;
+            }
+        </style>
     </h:head>
     <h:body>
         <h:form> 
             <p:growl id="messages"/>
 
-            <p:menubar class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <p:menubar class="navbar navbar-expand-lg navbar-light bg-light">
                 <p:menuitem value="Biblioteca" url="http://localhost:8080/GestorBiblioteca/faces/index.xhtml"/>
                 <p:menuitem value="Registrar Libros" url="http://localhost:8080/GestorBiblioteca/faces/registrar.xhtml"/>
                 <p:menuitem value="Prestar Libros" url="http://localhost:8080/GestorBiblioteca/faces/prestar.xhtml"/>
@@ -20,48 +38,91 @@
             </p:menubar>
         </h:form>
 
-        <h:form id="form">
-            <div style="padding:15px;">
+        <div class="container-fluid mt-0 formulario">
+            <h:form class="mt-0 pt-0">
+                <div class="container p-1">
 
-                <div style="padding:15px;">
-                    <p:outputLabel value="Nombre: " style="font-weight:bold;"/>
-                    <p:inputText value="#{actualizarUsuario.usuario.nombre}" style="width:100%"/>
+                    <h3 class="display-4 pt-0 text-center mb-0 pb-0" style="font-size: 2.5rem">Editar Libros</h3>
+
+                    <fieldset class="border border-primary m-0 pl-2 pr-2 pb-2 pt-0 rounded">
+                        <legend>Editar libro</legend>
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <!--Codigo de registro-->
+                                <h:outputLabel for="codigoRegistro" value="Codigo registro:"/>
+                                <h:inputText id="codigoRegistro" value="#{actualizarLibro.libroA.codigoRegistro}" class="form-control" disabled="True"/>
+
+                                <!--ISBN-->
+                                <h:outputLabel for="ISBN" value="Codigo ISBN:" />
+                                <h:inputText id="ISBN" value="#{actualizarLibro.libroA.ISBN}" class="form-control" required="true"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Titulo del libro-->
+                                <h:outputLabel for="Titulo" value="Titulo del libro:" />
+                                <h:inputText id="Titulo" value="#{actualizarLibro.libroA.nombreLibro}" class="form-control" required="true"/>
+
+                                <!--Autor-->
+                                <h:outputLabel for="Autor" value="Autor:" />
+                                <h:inputText id="Autor" value="#{actualizarLibro.libroA.autor}" class="form-control" required="true"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Pais-->
+                                <h:outputLabel for="Pais" value="País:" />
+                                <h:inputText id="Pais" value="#{actualizarLibro.libroA.pais}" class="form-control" required="true"/>
+
+                                <!--Numero de paginas-->
+                                <h:outputLabel for="NumPag" value="Numero de páginas:" />
+                                <h:inputText id="NumPag" value="#{actualizarLibro.libroA.numeroPaginas}" class="form-control" required="true"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Editorial-->
+                                <h:outputLabel for="Editorial" value="Editorial:" />
+                                <h:inputText id="Editorial" value="#{actualizarLibro.libroA.editorial}" class="form-control" required="true"/>
+
+                                <!--Fecha Publicacion-->
+                                <h:outputLabel for="FechaP" value="Fecha de publicación:" />
+                                <h:inputText id="FechaP" value="#{actualizarLibro.libroA.fechaPublicacion}" class="form-control" required="true"/>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Idioma-->
+                                <h:outputLabel for="Idioma" value="Idioma:" />
+                                <h:selectOneMenu id="Idioma" value="#{actualizarLibro.libroA.idioma}" class="form-control" required="true">
+                                    <f:selectItem itemValue="Nothing" itemLabel="--Seleccione un idioma--" itemDisabled="True"/>
+                                    <f:selectItem itemValue="Ingles" itemLabel="Inglés"/>
+                                    <f:selectItem itemValue="Español" itemLabel="Español"/>
+                                    <f:selectItem itemValue="Frances" itemLabel="Frances"/>
+                                    <f:selectItem itemValue="Italiano" itemLabel="Italiano"/>
+                                    <f:selectItem itemValue="Aleman" itemLabel="Aleman" />
+                                    <f:selectItem itemValue="Chino" itemLabel="Chino" />
+                                    <f:selectItem itemValue="Japones" itemLabel="Japones"/>
+                                    <f:selectItem itemValue="Portugues" itemLabel="Portugues"/>
+                                    <f:selectItem itemValue="Mandarin" itemLabel="Mandarin"/>
+                                    <f:selectItem itemValue="Arabe" itemLabel="Arabe"/>
+                                </h:selectOneMenu>
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <!--Estado-->
+                                <h:outputLabel for="Estado" value="Estado:" />
+                                <h:inputText id="Estado" value="#{actualizarLibro.libroA.estadoPrestamo}" class="form-control" disabled="True"/>
+                            </div>
+
+                        </div>
+                        <div class="col-12">
+                            <!--Boton de accion-->
+                            <h:commandButton value="Actualizar" class="btn btn-success w-100 mt-0 mb-2" action="#{actualizarLibro.ActualizarLibro}"></h:commandButton>
+
+                            <h:button outcome="index" value="Cancelar" class="btn btn-danger w-100"/>
+                        </div>
+                    </fieldset>
                 </div>
-
-                <div style="padding:15px;">
-                    <p:outputLabel value="Apellido: " style="font-weight:bold;"/>
-                    <p:inputText value="#{actualizarUsuario.usuario.apellido}" style="width:100%"/>
-                </div>
-
-                <div style="padding:15px;">
-                    <p:outputLabel value="Edad: " style="font-weight:bold;"/>
-                    <p:inputText style="width:100%" value="#{actualizarUsuario.usuario.edad}"/>
-                </div>
-
-                <div style="padding:15px;">
-                    <p:outputLabel value="Pais: " style="font-weight:bold;"/>
-                    <p:selectOneMenu style="width:100%" value="#{actualizarUsuario.pais_seleccionado}">
-                        <f:selectItem itemLabel="Seleccionar pais" itemValue="null"/>
-                        <f:selectItems value="#{actualizarUsuario.countries}"/>
-                    </p:selectOneMenu>
-                </div>
-
-                <div style="padding:15px;">
-                    <p:outputLabel value="Dni: " style="font-weight:bold;"/>
-                    <p:inputText style="width:100%" value="#{actualizarUsuario.usuario.dni}"/>
-                </div>
-
-                <div style="padding:30px;">
-                    <p:commandButton value="Actualizar Usuario" action="#{actualizarUsuario.update}" ajax="true" style="width:100%;"/>
-                    <p:spacer width="10"/>
-                    <p:button outcome="index" value="Cancelar" style="width:100%;"/>
-                </div>
-
-            </div>
-        </h:form>
-
+            </h:form>
+        </div>
     </h:body>
-</html>
-</h:body>
+
 </html>
 

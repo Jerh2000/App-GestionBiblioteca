@@ -35,7 +35,7 @@ public class ServicioLibro {
         libro.setNombreLibro(libro.getNombreLibro());
         libro.setAutor(libro.getAutor());
         libro.setPais(libro.getPais());
-        libro.setNumeroPaginas(libro.getEditorial());
+        libro.setNumeroPaginas(libro.getNumeroPaginas());
         libro.setEditorial(libro.getEditorial());
         libro.setIdioma(libro.getIdioma());
         libro.setFechaPublicacion(libro.getFechaPublicacion());
@@ -53,8 +53,29 @@ public class ServicioLibro {
     public Libro ObtenerLibro(String codRegistro){
         Libro objetoLibro = new Libro();
         for (int i = 0; i < libros.size(); i++) {
-             System.out.println("Entro aqui");
             if(libros.get(i).getCodigoRegistro().equals(codRegistro)){
+                objetoLibro = libros.get(i);
+                
+            }
+        }
+        return objetoLibro;
+    }
+    
+    public Libro ObtenerLibroPorISBN(String isbn){
+        Libro objetoLibro = new Libro();
+        for (int i = 0; i < libros.size(); i++) {
+            if(libros.get(i).getISBN().equals(isbn)){
+                objetoLibro = libros.get(i);
+                
+            }
+        }
+        return objetoLibro;
+    }
+    
+    public Libro ObtenerLibroPorNombre(String nomLibro){
+        Libro objetoLibro = new Libro();
+        for (int i = 0; i < libros.size(); i++) {
+            if(libros.get(i).getNombreLibro().equals(nomLibro)){
                 objetoLibro = libros.get(i);
                 
             }

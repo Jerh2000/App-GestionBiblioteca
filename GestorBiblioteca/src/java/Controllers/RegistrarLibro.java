@@ -22,6 +22,7 @@ import javax.inject.Named;
 
 import Model.Libro;
 import Services.ServicioLibro;
+import javax.faces.application.FacesMessage;
 
 @Named
 @ViewScoped
@@ -53,5 +54,4 @@ public class RegistrarLibro implements Serializable {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         context.redirect("index.xhtml");
     }
-    
 }

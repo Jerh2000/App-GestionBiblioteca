@@ -5,12 +5,17 @@
  */
 package Controllers;
 
+import Model.Libro;
 import Model.Prestamo;
+import Services.ServicioLibro;
 import Services.ServicioPrestamo;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -26,10 +31,11 @@ public class ListarPrestamos implements Serializable {
 
     @EJB
     private ServicioPrestamo servicioPrestamo;
+     private ServicioLibro servicioLibro;
 
     private List<Prestamo> listaPrestamos;
+    private Libro libroDevolver;
 
-    
     //Me incinializa una lista de de prestamos hechos (listaPrestamos)
     //Para ello llama a un metodo de la clase ServicioPrestamo (listarPrestamos();)
     //Esto permite poder listar los registros de libros prestados
@@ -52,6 +58,19 @@ public class ListarPrestamos implements Serializable {
 
     public void setListaPrestamos(List<Prestamo> listaPrestamos) {
         this.listaPrestamos = listaPrestamos;
+    }
+
+    public Libro getLibroDevolver() {
+        return libroDevolver;
+    }
+
+    public void setLibroDevolver(Libro libroDevolver) {
+        this.libroDevolver = libroDevolver;
+    }
+    
+
+    public void Devolver()throws IOException {
+  
     }
 
 }

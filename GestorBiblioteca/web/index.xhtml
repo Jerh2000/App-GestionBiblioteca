@@ -69,11 +69,11 @@
                     </p:column>
 
                     <p:column headerText="Acciones">
-                        <p:button icon="ui-icon-delete" value="E" outcome="eliminarlibro">
+                        <p:button icon="ui-icon-delete" value="ELIMINAR" outcome="eliminarlibro" class="btn btn-danger">
                             <f:param name="codRegistro" value="#{lib.codigoRegistro}"/>
                         </p:button>
                         <p:spacer width="10"/>
-                        <p:button icon="ui-icon-update" value="A" outcome="editarLibro">
+                        <p:button icon="ui-icon-update" value="EDITAR" outcome="editarLibro" class="btn btn-warning">
                             <f:param name="codRegistro" value="#{lib.codigoRegistro}"/>
                         </p:button>
                     </p:column>
@@ -111,6 +111,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <br />
     </h:body>
 </html>
 
